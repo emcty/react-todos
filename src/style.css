@@ -1,0 +1,20 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+h1{
+	text-align: center;
+	border: 1px solid #ccc;
+	font-weight: 400;
+	padding-left: 10px;
+	color: #ccc;
+	text-align: center;
+}
+.hello{
+	color: red;
+	padding-left:20px;
+	margin-top:10px;
+	text-align: center;
+}
+
+
