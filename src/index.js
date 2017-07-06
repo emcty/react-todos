@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
 import _ from "lodash";
 import "./style.css";
 
@@ -10,5 +14,14 @@ function component() {
     return element;
  }
  document.getElementById("app").appendChild(component());
+
+console.log(ReactDOM);
+ ReactDOM.render(
+ 	'',
+ 	document.getElementById("app")
+ );
+
+
+
 
 

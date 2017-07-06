@@ -25,7 +25,14 @@ module.exports = {
 		    chunksSortMode: 'dependency'//允许控制块在添加到页面之前的排序方式
 	    }),
     	new ExtractTextPlugin('stylesheets/[name].css'),
-    	new webpack.optimize.CommonsChunkPlugin("common") // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
+    	new webpack.optimize.CommonsChunkPlugin("common"), // 默认会把所有入口节点的公共代码提取出来,生成一个common.js
+  		new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor', //提取公共模板的名字
+            minChunks: function (module) {
+               // 该配置假定你引入的 vendor 存在于 node_modules 目录中
+               return module.context && module.context.indexOf('node_modules') !== -1;
+            }
+        })
   	],
 	module:{
 		rules:[
@@ -36,7 +43,12 @@ module.exports = {
 		          fallback: "style-loader",//编译后用什么loader来提取css文件
 		          use: "css-loader" //需要什么样的loader去编译文件
         		})
-
+			},
+			{
+				test: /\.[jsx|js]$/,
+				exclude: /node_modules/,
+				include: path.resolve("./src"),
+				use: 'babel'
 			}
 		]
 	},
