@@ -14,9 +14,9 @@ module.exports = {
 	devtool: "cheap-module-source-map", //sourceMap
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(), // 启用 HMR
-		new webpack.DefinePlugin({
-	      'process.env.NODE_ENV': JSON.stringify('production')
-	    }),
+		// new webpack.DefinePlugin({
+	 //      'process.env.NODE_ENV': JSON.stringify('production')
+	 //    }),
 	    new HtmlWebpackPlugin({
 	    	inject: false,
 		    title: 'webpack3的初次使用',
@@ -45,10 +45,10 @@ module.exports = {
         		})
 			},
 			{
-				test: /\.[jsx|js]$/,
+				test: /\.js$/,
 				exclude: /node_modules/,
 				include: path.resolve("./src"),
-				use: 'babel'
+				use: 'babel-loader'
 			}
 		]
 	},
