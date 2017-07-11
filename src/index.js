@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BrowserRouter as Router, Route,browserHistory,hashHistory,Link} from 'react-router-dom';
 
+import App from './containers/app';
+import About from './containers/about';
+import Todos from './containers/todos';
 
 import _ from "lodash";
-import "./style.css";
-
-// function component() {
-//     var element = document.createElement('div');
-
-//     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-//     element.classList.add("hello");
-//     console.log(1);
-//     return element;
-//  }
-//  document.getElementById("app").appendChild(component());
 
 
  ReactDOM.render(
- 	<div>aaa</div>,
+ 	<Router history={browserHistory}>
+ 		<div>
+ 		  <Route path="/" exact component={App} />
+	      <Route path="/about" component={About} />
+	      <Route path="/todos" component={Todos} />
+    	</div>
+ 	</Router>,
  	document.getElementById("app")
  );
 

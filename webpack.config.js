@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin'); //抽离css样
 
 module.exports = {
 	entry:{
-	 main:["./src/index.js","./src/common/reset.css"]
+	 main:["./src/index.js"]
 	},
 	output:{
 		filename: '[name]-[hash:10].js', //main-ddc7e6c173.js
@@ -20,7 +20,7 @@ module.exports = {
 	    new HtmlWebpackPlugin({
 	    	inject: false,
 		    title: 'webpack3的初次使用',
-		    template: path.join("./src", 'todos.html'),//模板文件路径
+		    template: path.join("./src", 'index.html'),//模板文件路径
 		    filename: 'index.html', //输出的 HTML 文件名
 		    chunksSortMode: 'dependency'//允许控制块在添加到页面之前的排序方式
 	    }),
@@ -38,15 +38,18 @@ module.exports = {
 		rules:[
 			{
 				test: /\.css$/,
-				// use:["style-loader","css-loader"],
-				use: new ExtractTextPlugin('stylesheets/[name].css').extract({
+				use: ExtractTextPlugin.extract({
 		          fallback: "style-loader",//编译后用什么loader来提取css文件
-		          use: "css-loader" //需要什么样的loader去编译文件
-        		})
+		          use: ["css-loader"]//需要什么样的loader去编译文件
+		        })
 			},
 			{
-				test: /\.js$/,
-				exclude: /node_modules/,
+				test:/\.(?:woff2?|eot|ttf)$/,
+				use:"file-loader"
+			},
+			{
+				test: /\.(js|jsx)$/,
+				// exclude: /node_modules/,
 				include: path.resolve("./src"),
 				use: 'babel-loader'
 			}

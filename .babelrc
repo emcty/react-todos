@@ -3,5 +3,10 @@
     "es2015",
     "stage-2",
     "react"
-  ]
+  ],
+  "plugins":[
+  	"transform-class-properties",
+  	["antd", [{ "libraryName": "antd", "style": "css" }]],
+  	["import", { libraryName: "antd", style: "css" }]
+  ]  
 }
