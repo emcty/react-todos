@@ -7,28 +7,21 @@ const InputGroup = Input.Group;
 class Todos extends React.Component{
 	state = {
 		todos:[],
-		value:[],
+		value:""
 	}
 	handleAdd=()=>{
-		// console.log(this.state.value);
-		// this.state.todos.push(this.state.value);
-		this.state.todos = this.state.value;
-		console.log(this.state.todos);
+		this.setState({
+			todos: this.state.todos.concat([this.state.value])
+		});
 	}
 	handeChange=(event)=>{
 		let value = event.target.value;
-		if(this.state.value.indexOf(value)>-1){
-			return;
-		}
-		// this.setState({
-		// 	value:this.state.value.push(value)
-		// })
-		this.state.value.push(value);
+		this.state.value = value
 	}
 	componentDidMount(){
 	}
 	render(){
-		console.log(2); 
+		console.log(12312)
 		return (
 			<div style={{marginTop:20,marginLeft:200}}>
 				<Row>
