@@ -49,7 +49,7 @@ module.exports = {
 			},
 			{
 				test: /\.(js|jsx)$/,
-				// exclude: /node_modules/,
+				exclude: /node_modules/,
 				include: path.resolve("./src"),
 				use: 'babel-loader'
 			}

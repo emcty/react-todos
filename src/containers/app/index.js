@@ -6,12 +6,11 @@ class App extends React.Component{
 	render(){
 		return (
 		<div>
-		   
-		      <Layout>
-		        <Header>Header</Header>
-		        <Content>Content</Content>
-		        <Footer>Footer</Footer>
-		      </Layout>
+	      <Layout>
+	        <Header>Header</Header>
+	        <Content>Content</Content>
+	        <Footer>Footer</Footer>
+	      </Layout>
   		</div>
 		)
 	}
