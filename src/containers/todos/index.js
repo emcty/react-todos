@@ -15,7 +15,7 @@ class Todos extends React.Component{
 		});
 	}
 	handeChange=(event)=>{
-		let value = event.target.value;
+		let value = event.target.value.trim();
 		this.state.value = value
 	}
 	componentDidMount(){
