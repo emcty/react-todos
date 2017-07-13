@@ -26,7 +26,7 @@ class Todos extends React.Component{
 			<div style={{marginTop:20,marginLeft:200}}>
 				<Row>
 					<Input placeholder="add todos" onBlur={this.handeChange} defaultValue="" style={{ width: 200,marginRight:2}} />
-					<Button type="primary" onClick={this.handleAdd}>添加</Button>
+					<Button type="primary" onClick={this.props.addItem}>添加</Button>
 				</Row>
 				<ul>
                     {this.state.todos.map(function(item,index){

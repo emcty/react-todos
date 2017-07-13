@@ -4,6 +4,8 @@ import {createStore} from "redux";
 import { Layout } from 'antd';
 import Todos from "../Todos";
 
+import { addTodo } from '../../actions';
+
 import reducers from "../../reducers";
 const { Header, Footer, Sider, Content} = Layout;
 
@@ -16,10 +18,11 @@ class App extends React.Component{
 		item:store.getState()
 	}
 	handleAddItem=()=>{
-		store.dispatch({
-			type:"ADD_TODO",
-			text:"aaa"
-		});
+		store.dispatch(addTodo("aaa"));
+		store.subscribe(() =>
+  			console.log(store.getState())
+		);
+
 		console.log(this.state)
 	}
 
